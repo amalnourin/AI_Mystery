@@ -1,3 +1,4 @@
+
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
@@ -7,5 +8,11 @@
     "api/**/*.js": {
       "maxDuration": 120
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://ai-mystery-room-api-svm3.onrender.com/api/:path*"
+    }
+  ]
 }
