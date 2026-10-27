@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: ai-mystery-room-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_MODEL
+        value: gemini-3.8-flash
+      - key: SESSION_DAYS
+        value: "7"
+      - key: MONGODB_URI
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PROXY_SECRET
+        sync: false
